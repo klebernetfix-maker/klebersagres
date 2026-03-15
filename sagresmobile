@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baixe o App – Sagres Informática</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 460px;
+      width: 100%;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 1.75rem;
+      animation: fadeDown 0.5s ease both;
+    }
+    .header .icon-wrap {
+      width: 68px; height: 68px;
+      background: #e8f1fd;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .header h1 {
+      font-size: 22px; font-weight: 800;
+      color: #1a2235;
+      margin-bottom: 0.4rem;
+    }
+    .header p {
+      font-size: 14px; color: #64748b; line-height: 1.6;
+    }
+
+    /* Seções */
+    .section {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    .section h2 {
+      font-size: 14px; font-weight: 700;
+      color: #1a2235;
+      margin-bottom: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* QR Code */
+    .qr-wrap {
+      text-align: center;
+    }
+    .qr-wrap p.label {
+      font-size: 13px; color: #64748b;
+      margin-bottom: 1rem; line-height: 1.5;
+    }
+    .qr-box {
+      display: inline-block;
+      background: #fff;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 0.75rem;
+    }
+    .qr-wrap p.sub {
+      font-size: 12px; color: #94a3b8;
+    }
+
+    /* Botão download */
+    .btn-download {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: #2563eb;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px; font-weight: 700;
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: background 0.2s, transform 0.15s;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+    .btn-download:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-download:active { transform: scale(0.98); }
+
+    /* Como instalar */
+    .steps { display: flex; flex-direction: column; gap: 10px; }
+    .step { display: flex; align-items: flex-start; gap: 12px; }
+    .step-num {
+      min-width: 26px; height: 26px;
+      background: #dbeafe; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: #2563eb;
+    }
+    .step p { font-size: 14px; color: #334155; padding-top: 3px; line-height: 1.5; }
+    .step p strong { color: #1a2235; }
+    .step code {
+      font-family: 'Courier New', monospace;
+      font-size: 12px; background: #f1f5f9;
+      padding: 1px 5px; border-radius: 4px;
+      color: #475569;
+    }
+
+    /* Aviso */
+    .alert {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+      display: flex; gap: 10px; align-items: flex-start;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+    .alert svg { min-width: 18px; margin-top: 2px; }
+    .alert p { font-size: 13px; color: #92400e; line-height: 1.6; }
+
+    /* Suporte */
+    .contacts { display: flex; flex-direction: column; gap: 10px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .contact-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon.phone { background: #dcfce7; }
+    .contact-icon.whatsapp { background: #dcfce7; }
+    .contact-item span { font-size: 14px; color: #1a2235; font-weight: 600; }
+
+    /* Horários */
+    .horario {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.5s 0.3s ease both;
+    }
+    .horario p {
+      font-size: 13px; color: #166534; line-height: 1.9;
+    }
+    .horario strong { color: #14532d; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 12px; color: #94a3b8;
+      margin-top: 0.5rem;
+    }
+
+    /* Animações */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="icon-wrap">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+        <path d="M17 1.01L7 1C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" fill="#2563eb"/>
+        <path d="M12 17.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5z" fill="#2563eb"/>
+      </svg>
+    </div>
+    <h1>Baixe nosso aplicativo</h1>
+    <p>Tenha acesso rápido e fácil aos nossos serviços diretamente pelo seu celular Android.</p>
+  </div>
+
+  <!-- QR Code -->
+  <div class="section qr-wrap">
+    <p class="label">Aponte a câmera do celular para o QR Code abaixo para baixar o aplicativo</p>
+    <div class="qr-box">
+      <div id="qrcode"></div>
+    </div>
+    <p class="sub">Compatível com Android</p>
+  </div>
+
+  <!-- Botão Download -->
+  <a class="btn-download" href="https://sagresinformatica.com.br/downloads/sm1056.apk">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M12 16l-5-5h3V4h4v7h3l-5 5z" fill="#fff"/>
+      <path d="M20 18H4v2h16v-2z" fill="#fff"/>
+    </svg>
+    Baixar agora
+  </a>
+
+  <!-- Como instalar -->
+  <div class="section">
+    <h2>Como instalar</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><p>Abra a câmera do celular.</p></div>
+      <div class="step"><div class="step-num">2</div><p>Escaneie o QR Code acima.</p></div>
+      <div class="step"><div class="step-num">3</div><p>Baixe o arquivo <code>sm1056.apk</code>.</p></div>
+      <div class="step"><div class="step-num">4</div><p>Abra o arquivo baixado.</p></div>
+      <div class="step"><div class="step-num">5</div><p>Toque em <strong>Instalar</strong>.</p></div>
+      <div class="step"><div class="step-num">6</div><p>Se aparecer aviso, permita <strong>Fontes desconhecidas</strong>.</p></div>
+    </div>
+  </div>
+
+  <!-- Aviso -->
+  <div class="alert">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" fill="#d97706"/>
+    </svg>
+    <p>Alguns celulares Android podem bloquear a instalação. Nesse caso, permita a instalação de fontes desconhecidas nas configurações do dispositivo.</p>
+  </div>
+
+  <!-- Suporte -->
+  <div class="section">
+    <h2>Suporte técnico</h2>
+    <div class="contacts">
+      <a class="contact-item" href="tel:+5543999962360">
+        <div class="contact-icon phone">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.29 21 3 13.71 3 4.5a1 1 0 011-1H8a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.71 2.71z" fill="#16a34a"/>
+          </svg>
+        </div>
+        <span>(43) 99996-2360</span>
+      </a>
+      <a class="contact-item" href="tel:+5543988173683">
+        <div class="contact-icon phone">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.29 21 3 13.71 3 4.5a1 1 0 011-1H8a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.71 2.71z" fill="#16a34a"/>
+          </svg>
+        </div>
+        <span>(43) 98817-3683</span>
+      </a>
+      <a class="contact-item" href="https://wa.me/5543999962360" target="_blank">
+        <div class="contact-icon whatsapp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.987-1.404A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 01-4.274-1.247l-.306-.182-3.167.891.848-3.089-.198-.318A7.96 7.96 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill="#25D366"/>
+          </svg>
+        </div>
+        <span>WhatsApp (43) 99996-2360</span>
+      </a>
+      <a class="contact-item" href="https://wa.me/5543988173683" target="_blank">
+        <div class="contact-icon whatsapp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.987-1.404A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 01-4.274-1.247l-.306-.182-3.167.891.848-3.089-.198-.318A7.96 7.96 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z" fill="#25D366"/>
+          </svg>
+        </div>
+        <span>WhatsApp (43) 98817-3683</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Horário de atendimento -->
+  <div class="horario">
+    <p>
+      👋 Olá!! Horário de atendimento:<br>
+      <strong>Seg à Sex</strong> 08:00 às 19:30 &nbsp;/&nbsp; <strong>Sáb</strong> 09:00 às 18:00 😁<br>
+      Em caso de urgência ligue:<br>
+      <strong>(43) 99996-2360 / (43) 98817-3683</strong> 🆘
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">Sagres Informática · suporte técnico</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://sagresinformatica.com.br/downloads/sm1056.apk",
+    width: 220,
+    height: 220,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+</script>
+</body>
+</html>
