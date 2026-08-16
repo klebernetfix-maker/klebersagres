@@ -49,6 +49,10 @@
     .web-feature strong{color:var(--blue-light);display:block;margin-bottom:2px;}
     .web-btn{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--blue);color:#fff;border-radius:12px;padding:11px;font-size:13px;font-weight:800;text-decoration:none;transition:filter .15s ease,transform .15s ease;}
     .web-btn:hover{filter:brightness(1.1);transform:translateY(-1px);}
+    .modules-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;margin-bottom:10px;animation:fadeUp .5s ease both;}
+    .modules-desc{font-size:12px;color:var(--muted);margin-bottom:.75rem;line-height:1.5;}
+    .modules-chips{display:flex;flex-wrap:wrap;gap:6px;}
+    .module-chip{background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:11px;font-weight:700;padding:5px 11px;border-radius:20px;}
     .install-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;animation:fadeUp .5s ease .4s both;}
     .steps{display:flex;flex-direction:column;gap:10px;}
     .step{display:flex;align-items:flex-start;gap:10px;}
@@ -301,6 +305,30 @@
         <div class="web-feature"><span>⭐</span><div><strong>Sagres Fidelidade</strong>Fidelize seus clientes com um programa de pontos inteligente. A cada compra o cliente acumula pontos e pode trocar por benefícios — aumentando o retorno e as vendas do seu negócio.</div></div>
       </div>
       <a class="web-btn" href="https://prato-admin.herokuapp.com/#/" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" fill="currentColor"/></svg> Acessar Prato Admin</a>
+    </div>
+
+    <p class="sec-title">🧩 O sistema Sagres também inclui</p>
+    <div class="modules-card">
+      <p class="modules-desc">Já vem integrado no seu Sagres — fala com o suporte pra ativar.</p>
+      <div class="modules-chips">
+        <span class="module-chip">Sagres Delivery</span>
+        <span class="module-chip">Sagres Gestão</span>
+        <span class="module-chip">Sagres NFC-e + PDV</span>
+        <span class="module-chip">PIX no PDV</span>
+        <span class="module-chip">Sagres NF-e</span>
+        <span class="module-chip">Sagres Franquia</span>
+        <span class="module-chip">Sagres Integração</span>
+        <span class="module-chip">Sagres SMS</span>
+        <span class="module-chip">Sagres Encomendas</span>
+        <span class="module-chip">Sagres Relatórios</span>
+        <span class="module-chip">Sagres Venda Antecipada</span>
+        <span class="module-chip">Sagres TS</span>
+        <span class="module-chip">Programa de Fidelidade</span>
+        <span class="module-chip">Controle de Entregas</span>
+        <span class="module-chip">Sagres CRM</span>
+        <span class="module-chip">Sagres Coletor</span>
+        <span class="module-chip">Conta Assinada</span>
+      </div>
     </div>
 
     <p class="sec-title" style="margin-top:1.5rem;">🎧 Suporte Técnico</p>
