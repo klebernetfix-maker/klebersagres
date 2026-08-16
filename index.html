@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--blue:#3b82f6;--blue-dark:#1e3a8a;--blue-light:#60a5fa;--text:#1a2235;--muted:#64748b;--border:#e2e8f0;--bg:#f0f4f8;}
+    :root{--blue:#3b82f6;--blue-dark:#1e3a8a;--blue-light:#60a5fa;--text:#f1f5f9;--muted:#94a3b8;--border:#1e293b;--bg:#070c20;--card-bg:#0f1729;--surface:rgba(255,255,255,.05);}
     body{font-family:"Nunito",sans-serif;background:var(--bg);min-height:100vh;}
     .hero{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 55%,var(--blue-light) 100%);padding:2rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;}
     .hero::before{content:"";position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);}
@@ -23,41 +23,41 @@
     .sec-title::after{content:"";flex:1;height:1px;background:var(--border);}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
     .grid.one{grid-template-columns:1fr;}
-    .app-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1rem;cursor:pointer;display:flex;flex-direction:column;gap:6px;animation:fadeUp .5s cubic-bezier(.175,.885,.32,1.275) both;transition:transform .2s cubic-bezier(.175,.885,.32,1.275),box-shadow .2s ease,border-color .2s ease;}
-    .app-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,0.1);border-color:var(--blue);}
+    .app-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1rem;cursor:pointer;display:flex;flex-direction:column;gap:6px;animation:fadeUp .5s cubic-bezier(.175,.885,.32,1.275) both;transition:transform .2s cubic-bezier(.175,.885,.32,1.275),box-shadow .2s ease,border-color .2s ease;}
+    .app-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(59,130,246,.25);border-color:var(--blue);}
     .app-card:active{transform:scale(.97);}
     .app-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;}
     .app-name{font-size:13px;font-weight:800;color:var(--text);line-height:1.2;}
     .app-desc{font-size:11px;color:var(--muted);line-height:1.4;flex:1;}
-    .app-version{font-size:10px;font-weight:800;color:var(--blue);background:#eaf1fb;align-self:flex-start;padding:1px 7px;border-radius:20px;margin-top:-2px;}
+    .app-version{font-size:10px;font-weight:800;color:var(--blue-light);background:rgba(96,165,250,.15);align-self:flex-start;padding:1px 7px;border-radius:20px;margin-top:-2px;}
     .app-tags{display:flex;gap:4px;flex-wrap:wrap;}
     .tag{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px;}
     .tag-android{background:#dcfce7;color:#15803d;}
     .tag-ios{background:#f1f5f9;color:#334155;}
     .tag-windows{background:#dbeafe;color:#1d4ed8;}
     .tag-zip{background:#ffedd5;color:#c2410c;}
-    .card-arrow{font-size:16px;color:var(--blue);font-weight:800;text-align:right;}
-    .web-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;margin-bottom:10px;animation:fadeUp .5s cubic-bezier(.175,.885,.32,1.275) both;transition:box-shadow .2s ease;}
-    .web-card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.08);}
+    .card-arrow{font-size:16px;color:var(--blue-light);font-weight:800;text-align:right;}
+    .web-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;margin-bottom:10px;animation:fadeUp .5s cubic-bezier(.175,.885,.32,1.275) both;transition:box-shadow .2s ease;}
+    .web-card:hover{box-shadow:0 6px 20px rgba(59,130,246,.2);}
     .web-top{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
     .web-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
     .web-name{font-size:15px;font-weight:800;color:var(--text);}
-    .web-url{font-size:11px;color:var(--blue);font-weight:600;margin-top:2px;}
+    .web-url{font-size:11px;color:var(--blue-light);font-weight:600;margin-top:2px;}
     .web-features{display:flex;flex-direction:column;gap:8px;margin-bottom:1rem;}
-    .web-feature{display:flex;align-items:flex-start;gap:10px;background:#f8fafc;border-radius:10px;padding:.75rem;font-size:12.5px;color:var(--text);line-height:1.5;}
+    .web-feature{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border-radius:10px;padding:.75rem;font-size:12.5px;color:var(--text);line-height:1.5;}
     .web-feature span{font-size:18px;flex-shrink:0;margin-top:1px;}
-    .web-feature strong{color:var(--blue-dark);display:block;margin-bottom:2px;}
+    .web-feature strong{color:var(--blue-light);display:block;margin-bottom:2px;}
     .web-btn{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--blue);color:#fff;border-radius:12px;padding:11px;font-size:13px;font-weight:800;text-decoration:none;transition:filter .15s ease,transform .15s ease;}
     .web-btn:hover{filter:brightness(1.1);transform:translateY(-1px);}
-    .install-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;animation:fadeUp .5s ease .4s both;}
+    .install-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;animation:fadeUp .5s ease .4s both;}
     .steps{display:flex;flex-direction:column;gap:10px;}
     .step{display:flex;align-items:flex-start;gap:10px;}
     .step-num{min-width:24px;height:24px;background:#dbeafe;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--blue);flex-shrink:0;}
     .step p{font-size:12.5px;color:var(--text);padding-top:2px;line-height:1.5;}
-    .step p strong{color:var(--blue-dark);}
+    .step p strong{color:var(--blue-light);}
     .alert{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:.9rem;display:flex;gap:10px;align-items:flex-start;margin-top:.75rem;animation:fadeUp .5s ease .5s both;}
     .alert p{font-size:12px;color:#92400e;line-height:1.6;}
-    .support-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;animation:fadeUp .5s ease .5s both;}
+    .support-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;animation:fadeUp .5s ease .5s both;}
     .support-title{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.85rem;}
     .contact-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);}
     .contact-row:last-of-type{border-bottom:none;}
@@ -83,18 +83,18 @@
     .detail-name{font-size:22px;font-weight:900;color:#fff;}
     .detail-tagline{font-size:12px;color:rgba(255,255,255,0.65);margin-top:2px;}
     .detail-body{max-width:500px;margin:0 auto;padding:1.25rem 1rem 3rem;}
-    .qr-section{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;margin-bottom:.85rem;animation:fadeUp .4s ease both;}
+    .qr-section{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;margin-bottom:.85rem;animation:fadeUp .4s ease both;}
     .qr-section-title{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
     .qr-row{display:grid;grid-template-columns:1fr;gap:12px;}
     .qr-row.multi{grid-template-columns:1fr 1fr;}
-    .qr-item{background:#f8fafc;border:1.5px solid var(--border);border-radius:14px;padding:1rem;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
+    .qr-item{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:1rem;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
     .qr-box{background:#fff;padding:8px;border-radius:10px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;}
     .qr-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
-    .qr-action-btn{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:4px 10px;font-size:10px;font-weight:700;color:var(--text);cursor:pointer;font-family:"Nunito",sans-serif;transition:background .15s,border-color .15s;}
-    .qr-action-btn:hover{background:#eef2f7;}
+    .qr-action-btn{display:inline-flex;align-items:center;gap:4px;background:var(--surface);border:1.5px solid var(--border);border-radius:20px;padding:4px 10px;font-size:10px;font-weight:700;color:var(--text);cursor:pointer;font-family:"Nunito",sans-serif;transition:background .15s,border-color .15s;}
+    .qr-action-btn:hover{background:rgba(255,255,255,.12);}
     .qr-action-btn.qr-action-share{background:#dcfce7;border-color:#bbf7d0;color:#15803d;}
     .qr-action-btn.qr-action-share:hover{background:#bbf7d0;}
-    .dl-section{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;margin-bottom:.85rem;animation:fadeUp .4s ease .1s both;}
+    .dl-section{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;margin-bottom:.85rem;animation:fadeUp .4s ease .1s both;}
     .dl-title{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.85rem;}
     .dl-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;text-decoration:none;margin-bottom:8px;transition:transform .15s ease;font-weight:700;font-size:13px;}
     .dl-btn:last-child{margin-bottom:0;}
@@ -141,7 +141,7 @@
     <p class="hero-desc">Central de downloads e ferramentas para o seu negócio.</p>
 
   </div>
-  <div class="wave"><svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:36px;width:100%;"><path d="M0,20 C360,40 1080,0 1440,20 L1440,0 L0,0 Z" fill="#60a5fa"/><path d="M0,30 C360,10 1080,50 1440,30 L1440,40 L0,40 Z" fill="#f0f4f8"/></svg></div>
+  <div class="wave"><svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:36px;width:100%;"><path d="M0,20 C360,40 1080,0 1440,20 L1440,0 L0,0 Z" fill="#60a5fa"/><path d="M0,30 C360,10 1080,50 1440,30 L1440,40 L0,40 Z" fill="#070c20"/></svg></div>
 
   <div class="container">
 
@@ -264,7 +264,7 @@
       <div class="web-features">
         <div class="web-feature"><span>☁️</span><div><strong>Gestão na nuvem</strong>Acesse seu sistema de gestão de qualquer lugar, a qualquer hora, pelo navegador.</div></div>
         <div class="web-feature"><span>📊</span><div><strong>Controle completo</strong>Gerencie produtos, clientes, vendas e relatórios em uma plataforma moderna.</div></div>
-        <div class="web-feature" style="border:1.5px solid #fde68a;background:#fffbeb;">
+        <div class="web-feature" style="border:1.5px solid #fde68a;background:#fffbeb;color:#78350f;">
           <span>📇</span>
           <div>
             <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
@@ -328,7 +328,7 @@
     <div class="footer">
       <p style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:3px;">Sagres Automação Comercial</p>
       <p style="font-size:12px;color:var(--muted);margin-bottom:4px;">📍 Londrina - PR</p>
-      <a href="https://sagresinformatica.com.br" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--blue);font-weight:700;text-decoration:none;margin-bottom:8px;">
+      <a href="https://sagresinformatica.com.br" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--blue-light);font-weight:700;text-decoration:none;margin-bottom:8px;">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/></svg>
         sagresinformatica.com.br
       </a>
@@ -473,7 +473,7 @@ function openDetail(id){
     a.className='dl-btn '+st.cls;
     a.href=d.url;
     if(!/sagresinformatica\.com\.br/i.test(d.url))a.target='_blank';
-    a.innerHTML='<div class="dl-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">'+st.icon+'</svg></div><div class="dl-btn-info"><div class="dl-btn-title">'+d.title+'</div><div class="dl-btn-sub">'+d.sub+'</div></div><span style="font-size:16px;color:var(--muted);">↗</span>';
+    a.innerHTML='<div class="dl-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">'+st.icon+'</svg></div><div class="dl-btn-info"><div class="dl-btn-title">'+d.title+'</div><div class="dl-btn-sub">'+d.sub+'</div></div><span style="font-size:16px;color:#64748b;">↗</span>';
     dlBtns.appendChild(a);
   });
   document.getElementById('detail').classList.add('open');
