@@ -49,10 +49,9 @@
     .web-feature strong{color:var(--blue-light);display:block;margin-bottom:2px;}
     .web-btn{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--blue);color:#fff;border-radius:12px;padding:11px;font-size:13px;font-weight:800;text-decoration:none;transition:filter .15s ease,transform .15s ease;}
     .web-btn:hover{filter:brightness(1.1);transform:translateY(-1px);}
-    .modules-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;margin-bottom:10px;animation:fadeUp .5s ease both;}
-    .modules-desc{font-size:12px;color:var(--muted);margin-bottom:.75rem;line-height:1.5;}
-    .modules-chips{display:flex;flex-wrap:wrap;gap:6px;}
-    .module-chip{background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:11px;font-weight:700;padding:5px 11px;border-radius:20px;}
+    .modules-desc{font-size:12px;color:var(--muted);margin:0 0 .65rem;line-height:1.5;}
+    .module-card{cursor:default;}
+    .module-card:hover{transform:none;box-shadow:none;border-color:var(--border);}
     .install-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:16px;padding:1.1rem;animation:fadeUp .5s ease .4s both;}
     .steps{display:flex;flex-direction:column;gap:10px;}
     .step{display:flex;align-items:flex-start;gap:10px;}
@@ -332,26 +331,92 @@
     </div>
 
     <p class="sec-title">🧩 O sistema Sagres também inclui</p>
-    <div class="modules-card">
-      <p class="modules-desc">Já vem integrado no seu Sagres — fala com o suporte pra ativar.</p>
-      <div class="modules-chips">
-        <span class="module-chip">Sagres Delivery</span>
-        <span class="module-chip">Sagres Gestão</span>
-        <span class="module-chip">Sagres NFC-e + PDV</span>
-        <span class="module-chip">PIX no PDV</span>
-        <span class="module-chip">Sagres NF-e</span>
-        <span class="module-chip">Sagres Franquia</span>
-        <span class="module-chip">Sagres Integração</span>
-        <span class="module-chip">Sagres SMS</span>
-        <span class="module-chip">Sagres Encomendas</span>
-        <span class="module-chip">Sagres Relatórios</span>
-        <span class="module-chip">Sagres Venda Antecipada</span>
-        <span class="module-chip">Sagres TS</span>
-        <span class="module-chip">Programa de Fidelidade</span>
-        <span class="module-chip">Controle de Entregas</span>
-        <span class="module-chip">Sagres CRM</span>
-        <span class="module-chip">Sagres Coletor</span>
-        <span class="module-chip">Conta Assinada</span>
+    <p class="modules-desc">Já vem integrado no seu Sagres — fala com o suporte pra ativar.</p>
+    <div class="grid">
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#fee2e2;">🛵</div>
+        <div class="app-name">Sagres Delivery</div>
+        <div class="app-desc">BINA integrado, controle de status das entregas e valor do entregador.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#dbeafe;">🏬</div>
+        <div class="app-name">Sagres Gestão</div>
+        <div class="app-desc">Estoque, custo de produtos, conta assinada, contas a pagar e receber.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#dcfce7;">🧾</div>
+        <div class="app-name">Sagres NFC-e + PDV</div>
+        <div class="app-desc">Frente de caixa com NFC-e, Nota Fiscal Paranaense e CPF na Nota.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#fef9c3;">💸</div>
+        <div class="app-name">PIX no PDV</div>
+        <div class="app-desc">Recebimento via PIX direto no caixa, com confirmação automática.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#ede9fe;">📄</div>
+        <div class="app-name">Sagres NF-e</div>
+        <div class="app-desc">Modelo 55 — entrada, saída, importação e exportação de produtos.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#ccfbf1;">🏪</div>
+        <div class="app-name">Sagres Franquia</div>
+        <div class="app-desc">Comunicação entre franqueado e franqueadora, dados centralizados.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#fce7f3;">🔄</div>
+        <div class="app-name">Sagres Integração</div>
+        <div class="app-desc">Integra franqueados e franqueadora, vendas e preços atualizados.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#e0e7ff;">💬</div>
+        <div class="app-name">Sagres SMS</div>
+        <div class="app-desc">Confirmação do pedido e aviso de que está pronto pra retirada.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#fef3c7;">📅</div>
+        <div class="app-name">Sagres Encomendas</div>
+        <div class="app-desc">Agendamento e controle de encomendas solicitadas pelos clientes.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#f0fdf4;">📊</div>
+        <div class="app-name">Sagres Relatórios</div>
+        <div class="app-desc">DRE, DRG, plano de contas, financeiros e operacionais.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#fee2e2;">🪙</div>
+        <div class="app-name">Sagres Venda Antecipada</div>
+        <div class="app-desc">Cliente compra crédito com consumo abatido automaticamente.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#dbeafe;">👆</div>
+        <div class="app-name">Sagres TS</div>
+        <div class="app-desc">Operação por monitor touch screen nas telas do sistema.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#dcfce7;">🎁</div>
+        <div class="app-name">Programa de Fidelidade</div>
+        <div class="app-desc">Quanto mais consome, mais pontos — troca por produtos.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#fef9c3;">🚚</div>
+        <div class="app-name">Controle de Entregas</div>
+        <div class="app-desc">Estatísticas de entregadores pra melhorar a logística.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#ede9fe;">👥</div>
+        <div class="app-name">Sagres CRM</div>
+        <div class="app-desc">Frequência, consumo e relacionamento com o cliente.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#ccfbf1;">📟</div>
+        <div class="app-name">Sagres Coletor</div>
+        <div class="app-desc">Coletor de dados integrado ao controle de pedidos.</div>
+      </div>
+      <div class="app-card module-card">
+        <div class="app-icon" style="background:#fce7f3;">✍️</div>
+        <div class="app-name">Conta Assinada</div>
+        <div class="app-desc">Fiado por cliente, limite de valor, saldo positivo ou negativo.</div>
       </div>
     </div>
 
