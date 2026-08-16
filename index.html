@@ -521,6 +521,50 @@ function closeDetail(){
   document.body.style.overflow='';
   setTimeout(function(){document.getElementById('d-qr-row').innerHTML='';document.getElementById('d-dl-btns').innerHTML='';},300);
 }
+
+/* ─── Versões/links via API pública Roger That ───
+   https://api-rogerthat.sagrescontrole.com.br/api/public/projects
+   Atualiza automaticamente o selo de versão e o link de download dos apps
+   que existirem na API, sem tocar nos que não existem lá (ex: painel,
+   robô, display, pratolock). Se a API falhar, mantém os valores fixos
+   já presentes no HTML como fallback. */
+(function(){
+  var API_URL='https://api-rogerthat.sagrescontrole.com.br/api/public/projects';
+  // nome do projeto na API -> id do app aqui no site
+  var PROJECT_MAP={
+    sagres_mobile:'mobile',
+    cardapio_digital:'cardapio',
+    digtotem:'totem',
+    sagreskds:'kds',
+    squaluspro:'squaluspro'
+  };
+  var EXT_TO_TYPE={apk:'android',exe:'windows',zip:'zip'};
+
+  fetch(API_URL+'?projects='+encodeURIComponent(Object.keys(PROJECT_MAP).join(',')))
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(data){
+      if(!data||!data.projects)return;
+      data.projects.forEach(function(p){
+        var id=PROJECT_MAP[p.name];
+        var v=p.latest_version;
+        if(!id||!v||!v.version)return;
+
+        var badge=document.querySelector(".app-card[onclick=\"openDetail('"+id+"')\"] .app-version");
+        if(badge)badge.textContent='v'+v.version;
+
+        var app=APPS[id];
+        if(!app||!v.download_url)return;
+        var url=v.download_url;
+        url=url.replace(/^http:\/\//i,'https://'); // força https
+        if(!/^https?:\/\//i.test(url))url='https://'+url; // API às vezes retorna sem esquema
+        var ext=(url.split('.').pop()||'').toLowerCase().split(/[?#]/)[0];
+        var type=EXT_TO_TYPE[ext];
+        if(!type)return;
+        app.dl.forEach(function(d){if(d.t===type)d.url=url;});
+      });
+    })
+    .catch(function(){/* offline ou API fora do ar: mantém os links fixos do HTML */});
+})();
 </script>
 
 <!-- ═══ RDP OVERLAY ═══ -->
