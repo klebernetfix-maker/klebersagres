@@ -181,6 +181,20 @@
         <div class="app-tags"><span class="tag tag-android">Android</span></div>
         <div class="card-arrow">→</div>
       </div>
+      <div class="app-card" onclick="openDetail('dash')">
+        <div class="app-icon" style="background:#e0e7ff;">📊</div>
+        <div class="app-name">Sagres Dash</div>
+        <div class="app-desc">Dashboard gerencial em tempo real.</div>
+        <div class="app-tags"><span class="tag tag-android">Android</span><span class="tag tag-ios">iOS</span></div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="app-card" onclick="openDetail('estoque')">
+        <div class="app-icon" style="background:#fef3c7;">📦</div>
+        <div class="app-name">Sagres Estoque</div>
+        <div class="app-desc">Controle de estoque simplificado.</div>
+        <div class="app-tags"><span class="tag tag-android">Android</span><span class="tag tag-ios">iOS</span></div>
+        <div class="card-arrow">→</div>
+      </div>
     </div>
 
     <p class="sec-title">👩‍🍳 Cozinha & Senhas</p>
@@ -379,6 +393,12 @@ var APPS = {
     dl:[{t:"android",title:"Android",sub:"Baixar .apk",url:"https://sagresinformatica.com.br/downloads/sagresdisplay.apk"}]},
   pratolock: {icon:"🔒",bg:"#fee2e2",name:"Prato Lock",tagline:"Bloqueio e segurança de dispositivos",
     dl:[{t:"android",title:"Android",sub:"Baixar .apk",url:"https://sagresinformatica.com.br/downloads/pratolock.apk"}]},
+  dash:      {icon:"📊",bg:"#e0e7ff",name:"Sagres Dash",tagline:"Dashboard gerencial em tempo real",
+    dl:[{t:"android",title:"Android",sub:"Baixar na Play Store",url:"https://play.google.com/store/search?q=sagres%20dash&c=apps&hl=pt-BR"},
+        {t:"ios",title:"iPhone iOS",sub:"Baixar na App Store",url:"https://apps.apple.com/br/app/sagres-dash/id1407831060"}]},
+  estoque:   {icon:"📦",bg:"#fef3c7",name:"Sagres Estoque",tagline:"Controle de estoque simplificado",
+    dl:[{t:"android",title:"Android",sub:"Baixar na Play Store",url:"https://play.google.com/store/search?q=sagres%20estoque&c=apps&hl=pt-BR"},
+        {t:"ios",title:"iPhone iOS",sub:"Baixar na App Store",url:"https://apps.apple.com/br/app/sagres-estoque/id6450189997"}]},
   kds:       {icon:"👩‍🍳",bg:"#fef9c3",name:"Sagres KDS",tagline:"Display de cozinha — agilize o preparo dos pedidos",
     dl:[{t:"android",title:"Android",sub:"Baixar .apk",url:"https://sagresinformatica.com.br/downloads/kds1055.apk"},
         {t:"windows",title:"Windows",sub:"Baixar .exe",url:"https://sagresinformatica.com.br/downloads/kds1055.exe"}]},
@@ -448,7 +468,7 @@ function openDetail(id){
     var a=document.createElement('a');
     a.className='dl-btn '+st.cls;
     a.href=d.url;
-    if(d.t==='ios')a.target='_blank';
+    if(!/sagresinformatica\.com\.br/i.test(d.url))a.target='_blank';
     a.innerHTML='<div class="dl-btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">'+st.icon+'</svg></div><div class="dl-btn-info"><div class="dl-btn-title">'+d.title+'</div><div class="dl-btn-sub">'+d.sub+'</div></div><span style="font-size:16px;color:var(--muted);">↗</span>';
     dlBtns.appendChild(a);
   });
